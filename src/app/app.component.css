@@ -1,33 +1,17 @@
-.letters {
-    border: 0;
-    padding: 0px 2px;
-    text-align: center;
-}
-
-th:last-of-type, td:last-of-type {
-    border-right: 0;
-}
-
-th, td {
-    border-right: 1px solid grey;
-    padding: 4px;
-    margin: 0 !important;
-}
-
-tr:first-of-type {
-    border-bottom: 1px solid grey;
-}
-
 .container {
-    margin: 0;
-    font-size: 26px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
+    padding: 18px;
+    background: powderblue;
+    width: 100%;
 }
 
-.removeWord {
-    float: right;
-    height: 30px;
+h2 {
+    border-bottom: 2px solid paleturquoise;
+}
+
+.footnote {
+    font-size: 12px;
+    color: royalblue;
+    padding: 18px;
+    background: powderblue;
+    margin: auto;
 }

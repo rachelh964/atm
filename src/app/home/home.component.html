@@ -1,12 +1,13 @@
-<h2 id="current-balance">Current Balance: £{{currentBalance}}</h2>
+<h3 id="current-balance">Current Balance: £{{currentBalance}}</h3>
 <input type="number" id="withdrawal" value="0" />
 <button (click)="withdraw()" id="withdraw-button">Withdraw</button>
-<table *ngFor="let withdrawal of withdrawals">
-    <tr>
-        <th>£{{withdrawal.amount}} to withdraw</th>
-    </tr><tr *ngFor="let note of withdrawal.notes">
-        <td>
-            £{{note}} dispensed
+<table>
+    <tr *ngFor="let withdrawal of withdrawals">
+        <th>£{{withdrawal.amount}} to withdraw  -  </th>
+        <td *ngFor="let note of withdrawal.notes">
+            <p *ngIf="withdrawal.notes.length === 1"> £{{note}}</p>
+            <p *ngIf="withdrawal.notes.length > 1"> £{{note}},</p>
         </td>
+        <p> dispensed.</p>
     </tr>
 </table>
