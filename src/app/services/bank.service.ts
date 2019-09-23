@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { PincheckerService } from './pinchecker.service';
 import { Withdrawal } from './bank.model';
 
 @Injectable({
@@ -90,7 +89,7 @@ export class BankService {
     return (withdrawalAmount < this.getCurrentFunds()) && this.hasEnoughFivers(withdrawalAmount);
   }
   
-  hasEnoughFivers(withdrawalAmount: number) {
+  private hasEnoughFivers(withdrawalAmount: number) {
     if(withdrawalAmount % 10 == 5) {
       return this.fivers > 0;
     }

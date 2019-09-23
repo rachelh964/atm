@@ -13,14 +13,14 @@ export class WithdrawalCheckerService {
     if(this.withdrawalIsValid(withdrawAmount, currentBalance)) {
       console.log("withdrawal is valid");
       if(withdrawAmount %5 != 0) {
-        alert(AlertMessage.WdCoins)
+        alert(AlertMessage.WdCoins);
         withdrawAmount = this.roundUpToNearestFive(withdrawAmount);
         console.log("withdrawal corrected to £" + withdrawAmount);
       }
       if(this.bankService.hasRequiredFunds(withdrawAmount)) {
         console.log("bank has required funds");
         if((withdrawAmount - currentBalance) > 0) {
-          if(confirm(AlertMessage.WdOverdraft)) {
+          if(this.approvedOverdraft()) {
             this.performWithdrawal(withdrawAmount);
           }
         } else {
@@ -55,5 +55,9 @@ export class WithdrawalCheckerService {
 
   private performWithdrawal(withdrawAmount: number) {
     this.bankService.conductWithdrawal(withdrawAmount);
+  }
+
+  private approvedOverdraft() {
+    return confirm(AlertMessage.WdOverdraft);
   }
 }
